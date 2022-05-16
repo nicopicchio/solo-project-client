@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.links {
+  text-align: center;
+  color: #ffad1d;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
