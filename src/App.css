@@ -17,7 +17,7 @@ button {
   font-size: 1rem;
   border-style: none;
   border-radius: 8px;
-  background-color: #fabf2c;
+  background-color: #ffad1d;
 }
 
 input {
@@ -27,6 +27,11 @@ input {
   width: 200px;
   height: 40px;
   font-size: 1rem;
+  background-color: #191919;
+  border-radius: 8px;
+  border-style: none;
+  border: 1px solid #ffad1d;
+  color: rgb(220, 220, 220);
 }
 
 .logo {
@@ -37,7 +42,7 @@ input {
 .links {
   display: block;
   text-align: center;
-  color: #fabf2c;
+  color: #ffad1d;
   margin: 1rem;
   font-size: 1.5rem;
   text-decoration: none;

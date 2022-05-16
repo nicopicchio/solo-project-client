@@ -1,13 +1,31 @@
 import Logo from '../../src/assets/continental-logo.jpg';
+import { useState } from 'react';
+
+const emptyForm = {
+	username: '',
+	password: '',
+}
 
 function LoginForm() {
-	const onFormChange = (event) => {
-		console.log(event.target.value);
+	const [loginData, setLoginData] = useState(emptyForm);
+
+	const onLoginFormChange = (event) => {
+		const { name, value } = event.target;
+		setLoginData({
+			...loginData,
+			[name]: value,
+		});
 	};
 
-	const onFormSubmit = (event) => {
+	const loginUser = () => {
+		//TODO -> implement http request to log user in
+	}
+
+	const onLoginFormSubmit = (event) => {
 		event.preventDefault();
-		console.log('form submitted');
+		loginUser()
+		setLoginData(emptyForm);
+		event.target.reset()
 	};
 
 	return (
@@ -15,22 +33,22 @@ function LoginForm() {
 			<div className='logo'>
 				<img src={Logo} alt='continental main logo' width='300px' />
 			</div>
-			<form id='login-form'>
+			<form id='login-form' onSubmit={onLoginFormSubmit}>
 				<input
-					onChange={onFormChange}
+					onChange={onLoginFormChange}
 					name='username'
 					type='text'
 					placeholder='Username'
 					required
 				/>
 				<input
-					onChange={onFormChange}
+					onChange={onLoginFormChange}
 					name='password'
 					type='password'
 					placeholder='Password'
 					required
 				/>
-				<button onClick={onFormSubmit}>Login</button>
+				<button type='submit'>Login</button>
 			</form>
 		</>
 	);
