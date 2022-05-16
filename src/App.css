@@ -4,14 +4,20 @@
   box-sizing: border-box;
 }
 
+h1 {
+  color: #ffad1d;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 button {
   display: block;
   padding: 0.5rem 2rem;
-  margin: 1rem auto;
+  margin: 2rem auto;
   font-size: 1rem;
   border-style: none;
   border-radius: 8px;
-  background-color: #ffad1d;
+  background-color: #fabf2c;
 }
 
 input {
@@ -31,7 +37,7 @@ input {
 .links {
   display: block;
   text-align: center;
-  color: #ffad1d;
+  color: #fabf2c;
   margin: 1rem;
   font-size: 1.5rem;
   text-decoration: none;
