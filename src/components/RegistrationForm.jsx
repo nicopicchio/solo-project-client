@@ -1,6 +1,7 @@
 import Logo from '../../src/assets/continental-logo.jpg';
 import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const emptyForm = {
 	forename: '',
@@ -9,12 +10,13 @@ const emptyForm = {
 	password: '',
 	passwordConfirmation: '',
 };
+const registerUserRoute = 'http://localhost:4000/user/register';
 
 function RegistrationForm() {
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 	const [registrationData, setRegistrationData] = useState({ emptyForm });
 
-	const onRegitrationFormChange = (event) => {
+	const onRegistrationFormChange = (event) => {
 		const { name, value } = event.target;
 		setRegistrationData({
 			...registrationData,
@@ -23,15 +25,23 @@ function RegistrationForm() {
 	};
 
 	const registerUser = () => {
-		//TODO -> implement http request to register a user
-	}
+		axios
+			.post(registerUserRoute, {
+				forename: registrationData.forename,
+				surname: registrationData.surname,
+				username: registrationData.username,
+				password: registrationData.password,
+			})
+			.then((res) => console.log(res))
+			.catch((err) => console.log(err));
+	};
 
 	const onRegistrationFormSubmit = (event) => {
 		event.preventDefault();
 		registerUser();
 		setRegistrationData(emptyForm);
 		event.target.reset();
-		// navigate('/login');
+		navigate('/login');
 	};
 
 	return (
@@ -42,35 +52,35 @@ function RegistrationForm() {
 			<h1>Register Account</h1>
 			<form id='registration-form' onSubmit={onRegistrationFormSubmit}>
 				<input
-					onChange={onRegitrationFormChange}
+					onChange={onRegistrationFormChange}
 					name='forename'
 					type='text'
 					placeholder='Forename'
 					required
 				/>
 				<input
-					onChange={onRegitrationFormChange}
+					onChange={onRegistrationFormChange}
 					name='surname'
 					type='text'
 					placeholder='Surname'
 					required
 				/>
 				<input
-					onChange={onRegitrationFormChange}
+					onChange={onRegistrationFormChange}
 					name='username'
 					type='text'
 					placeholder='Username'
 					required
 				/>
 				<input
-					onChange={onRegitrationFormChange}
+					onChange={onRegistrationFormChange}
 					name='password'
 					type='password'
 					placeholder='Password'
 					required
 				/>
 				<input
-					onChange={onRegitrationFormChange}
+					onChange={onRegistrationFormChange}
 					name='passwordConfirmation'
 					type='password'
 					placeholder='Confirm password'

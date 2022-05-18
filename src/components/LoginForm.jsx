@@ -1,10 +1,12 @@
 import Logo from '../../src/assets/continental-logo.jpg';
 import { useState } from 'react';
+import axios from 'axios'
 
 const emptyForm = {
 	username: '',
 	password: '',
-}
+};
+const loginUserRoute = 'http://localhost:4000/user/login';
 
 function LoginForm() {
 	const [loginData, setLoginData] = useState(emptyForm);
@@ -18,14 +20,20 @@ function LoginForm() {
 	};
 
 	const loginUser = () => {
-		//TODO -> implement http request to log user in
-	}
+		axios
+			.post(loginUserRoute, {
+				username: loginData.username,
+				password: loginData.password,
+			})
+			.then((res) => console.log(res))
+			.catch((err) => console.log(err));
+	};
 
 	const onLoginFormSubmit = (event) => {
 		event.preventDefault();
-		loginUser()
+		loginUser();
 		setLoginData(emptyForm);
-		event.target.reset()
+		event.target.reset();
 	};
 
 	return (
