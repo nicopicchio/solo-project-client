@@ -1,5 +1,6 @@
 import Logo from '../../src/assets/continental-logo.jpg';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 
 const emptyForm = {
@@ -25,8 +26,8 @@ function LoginForm() {
 				username: loginData.username,
 				password: loginData.password,
 			})
-			.then((res) => console.log(res))
-			.catch((err) => console.log(err));
+			.then((res) => console.log(res.data))
+			.catch((err) => console.log(err.response.status));
 	};
 
 	const onLoginFormSubmit = (event) => {
@@ -58,6 +59,10 @@ function LoginForm() {
 				/>
 				<button type='submit'>Login</button>
 			</form>
+			<p>Not registered yet?</p>
+			<Link to='/register' className='registration-login-links'>
+				Register
+			</Link>
 		</>
 	);
 }

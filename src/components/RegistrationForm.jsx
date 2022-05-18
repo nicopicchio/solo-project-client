@@ -1,6 +1,6 @@
 import Logo from '../../src/assets/continental-logo.jpg';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const emptyForm = {
@@ -47,7 +47,7 @@ function RegistrationForm() {
 	return (
 		<>
 			<div className='logo'>
-				<img src={Logo} alt='continental main logo' width='250px' />
+				<img src={Logo} alt='continental main logo' width='300px' />
 			</div>
 			<h1>Register Account</h1>
 			<form id='registration-form' onSubmit={onRegistrationFormSubmit}>
@@ -88,6 +88,10 @@ function RegistrationForm() {
 				/>
 				<button type='submit'>Register</button>
 			</form>
+			<p>Already registered?</p>
+			<Link to='/login' className='registration-login-links'>
+				Login
+			</Link>
 		</>
 	);
 }

@@ -11,13 +11,14 @@ h1 {
 }
 
 button {
-  display: block;
+  display: flex;
   padding: 0.5rem 2rem;
   margin: 2rem auto;
   font-size: 1rem;
   border-style: none;
   border-radius: 8px;
   background-color: #ffad1d;
+  cursor: pointer;
 }
 
 input {
@@ -34,20 +35,31 @@ input {
   color: rgb(220, 220, 220);
 }
 
+p {
+  text-align: center;
+  color: #ffad1d;
+}
+
 .logo {
   display: flex;
   justify-content: center;
 }
 
-.links {
-  display: block;
-  text-align: center;
+.links,
+.registration-login-links {
+  display: table;
+  margin: 1rem auto;
   color: #ffad1d;
-  margin: 1rem;
   font-size: 1.5rem;
   text-decoration: none;
 }
 
-.links:hover {
+.registration-login-links {
+  margin: 0.5rem auto;
+  font-size: 1rem;
+}
+
+.links:hover,
+.registration-login-links:hover {
   text-decoration: underline;
 }

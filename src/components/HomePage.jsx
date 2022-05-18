@@ -5,7 +5,7 @@ function HomePage() {
 	return (
 		<>
 			<div className='logo'>
-				<img src={Logo} alt='continental main logo' width='500px' />
+				<img src={Logo} alt='continental main logo' width='600px' />
 			</div>
 			<Link to='/register' className='links'>
 				Register
