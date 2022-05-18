@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Logo from '../../src/assets/continental-logo.jpg';
 
-function HomePage() {
+function Homepage() {
 	return (
 		<>
 			<div className='logo'>
@@ -17,4 +17,4 @@ function HomePage() {
 	);
 }
 
-export default HomePage;
+export default Homepage;

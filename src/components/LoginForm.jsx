@@ -1,7 +1,7 @@
 import Logo from '../../src/assets/continental-logo.jpg';
+import axios from 'axios'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
 
 const emptyForm = {
 	username: '',
@@ -26,8 +26,17 @@ function LoginForm() {
 				username: loginData.username,
 				password: loginData.password,
 			})
-			.then((res) => console.log(res.data))
-			.catch((err) => console.log(err.response.status));
+			.then((res) => {
+				if (res.status === 200) {
+					alert(`Welcome onboard ${loginData.username}!`)
+					localStorage.setItem('jwt', res.data)
+				}
+			})
+			.catch((err) => {
+				if (err.response) {
+					alert(err.response.data)
+				}
+			});
 	};
 
 	const onLoginFormSubmit = (event) => {

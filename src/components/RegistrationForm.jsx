@@ -25,15 +25,25 @@ function RegistrationForm() {
 	};
 
 	const registerUser = () => {
-		axios
-			.post(registerUserRoute, {
-				forename: registrationData.forename,
-				surname: registrationData.surname,
-				username: registrationData.username,
-				password: registrationData.password,
-			})
-			.then((res) => console.log(res))
-			.catch((err) => console.log(err));
+		if (registrationData.password === registrationData.passwordConfirmation) {
+			axios
+				.post(registerUserRoute, {
+					forename: registrationData.forename,
+					surname: registrationData.surname,
+					username: registrationData.username,
+					password: registrationData.password,
+				})
+				.then((res) => {
+					if (res.status === 200) {
+						navigate('/login');
+					}
+				})
+				.catch((err) => {
+					if (err.response.status === 500) {
+						alert(err.response.data)
+					}
+				});
+		}
 	};
 
 	const onRegistrationFormSubmit = (event) => {
@@ -41,7 +51,6 @@ function RegistrationForm() {
 		registerUser();
 		setRegistrationData(emptyForm);
 		event.target.reset();
-		navigate('/login');
 	};
 
 	return (
