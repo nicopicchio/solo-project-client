@@ -4,19 +4,49 @@ header {
   justify-content: space-between;
 }
 
+main {
+  margin: 3rem 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
 .dashboard-title-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-#dashboard-balance,
-#dashboard-title {
+.dashboard-heading {
   text-align: center;
-  color: #ffad1d;
+  color: #bdbdbd;
   font-size: 2rem;
+}
+
+.main-container-heading {
+  text-align: center;
+  margin: 2rem;
+  color: #bdbdbd;
 }
 
 #logout-button {
   margin: auto 1rem;
+  font-weight: bold;
+}
+
+.main-containers {
+  border: 1px solid #ffad1d;
+  border-radius: 6px;
+  width: 40%;
+  height: 1000px;
+}
+
+.main-left-container,
+.main-right-container {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+}
+
+.main-middle-container {
+  border: none;
+  width: 100%;
 }
