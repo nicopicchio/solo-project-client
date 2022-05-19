@@ -10,7 +10,7 @@ const emptyForm = {
 	password: '',
 	passwordConfirmation: '',
 };
-const registerUserRoute = 'http://localhost:4000/user/register';
+const registerUserRoute = 'http://localhost:5432/user/register';
 
 function RegistrationForm() {
 	const navigate = useNavigate();

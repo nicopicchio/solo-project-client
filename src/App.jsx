@@ -13,8 +13,8 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Homepage />} />
 				<Route path='/register' element={<RegistrationForm />} />
-				<Route path='/login' element={<LoginForm />} />
-				<Route path='/dashboard' element={<Dashboard />} />
+				<Route path='/login' element={<LoginForm setIsUserLoggedIn={setIsUserLoggedIn} />} />
+				<Route path='/dashboard' element={isUserLoggedIn && <Dashboard />} />
 			</Routes>
 		</>
 	);

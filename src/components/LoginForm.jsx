@@ -1,15 +1,16 @@
 import Logo from '../../src/assets/continental-logo.jpg';
 import axios from 'axios'
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const emptyForm = {
 	username: '',
 	password: '',
 };
-const loginUserRoute = 'http://localhost:4000/user/login';
+const loginUserRoute = 'http://localhost:5432/user/login';
 
-function LoginForm() {
+function LoginForm({ setIsUserLoggedIn }) {
+	const navigate = useNavigate();
 	const [loginData, setLoginData] = useState(emptyForm);
 
 	const onLoginFormChange = (event) => {
@@ -28,7 +29,8 @@ function LoginForm() {
 			})
 			.then((res) => {
 				if (res.status === 200) {
-					alert(`Welcome onboard ${loginData.username}!`)
+					setIsUserLoggedIn(true)
+					navigate('/dashboard')
 					localStorage.setItem('jwt', res.data)
 				}
 			})
