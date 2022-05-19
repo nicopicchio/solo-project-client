@@ -9,6 +9,8 @@ function Dashboard() {
     navigate('/login')
   }
 
+	
+
 	return (
 		<>
 			<header>
@@ -20,7 +22,7 @@ function Dashboard() {
 				/>
 				<div className='dashboard-title-container'>
 					<h2 className='dashboard-heading'>userLogged's Dashboard</h2>
-					<h2 className='dashboard-heading'>Available Balance: $ 3,000</h2>
+					<h2 className='dashboard-heading'>Balance: $ 3,000</h2>
 				</div>
 				<button id='logout-button' onClick={signOut}>Logout</button>
 			</header>

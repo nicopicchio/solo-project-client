@@ -12,7 +12,7 @@ function App() {
 
 	useEffect(() => { 
 		const token = localStorage.getItem('jwt')
-		if (token) {
+		if (token || token !== undefined) {
 			setIsUserLoggedIn(true)
 		} else navigate('/login')
 	}, [navigate])
