@@ -13,8 +13,9 @@ function Dashboard() {
 				<button id='logout-button'>Logout</button>
 			</header>
 			<main>
-				<div className='main-container'></div>
-				<div className='main-container'></div>
+				<div className='main-left-container'></div>
+				<div className='main-middle-container'></div>
+        <div className='main-right-container'></div>
 			</main>
 		</>
 	);
