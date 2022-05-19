@@ -1,13 +1,22 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
-import Homepage from './components/Homepage';
-import RegistrationForm from '../src/components/RegistrationForm';
-import LoginForm from '../src/components/LoginForm';
-import Dashboard from './components/Dashboard'
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Homepage from './components/Homepage/Homepage';
+import RegistrationForm from './components/RegistrationForm/RegistrationForm';
+import LoginForm from './components/LoginForm/LoginForm';
+import Dashboard from './components/Dashboard/Dashboard'
 
 function App() {
+	const navigate = useNavigate();
 	const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+
+	useEffect(() => { 
+		const token = localStorage.getItem('jwt')
+		if (token) {
+			setIsUserLoggedIn(true)
+		} else navigate('/login')
+	}, [navigate])
+
 	return (
 		<>
 			<Routes>

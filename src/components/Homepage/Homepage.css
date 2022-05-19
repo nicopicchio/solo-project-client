@@ -1,0 +1,20 @@
+.homepage-container {
+  display: grid;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.links {
+  display: table;
+  margin: 1rem auto;
+  color: #ffad1d;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.links:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,23 @@
+header {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#dashboard-balance,
+#dashboard-title {
+  text-align: center;
+  color: #ffad1d;
+  font-size: 2rem;
+}
+
+#logout-button {
+  margin: 1rem;
+}
+
