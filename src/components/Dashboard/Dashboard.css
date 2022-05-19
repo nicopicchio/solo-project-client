@@ -1,5 +1,4 @@
 header {
-  width: 100vw;
   display: flex;
   justify-content: space-between;
 }
@@ -8,6 +7,10 @@ main {
   margin: 3rem 2rem 0;
   display: flex;
   justify-content: space-between;
+}
+
+#logo-top-left {
+  margin-left: 1rem;
 }
 
 .dashboard-title-container {
@@ -29,12 +32,11 @@ main {
 }
 
 #logout-button {
-  margin: auto 1rem;
+  margin: auto 2rem;
   font-weight: bold;
 }
 
 .main-containers {
-  border: 1px solid #ffad1d;
   border-radius: 6px;
   width: 40%;
   height: 1000px;
