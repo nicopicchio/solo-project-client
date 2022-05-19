@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
   const navigate = useNavigate();
-  const signOut = (event) => {
-    event.preventDefault();
+  const signOut = () => {
     localStorage.clear()
     navigate('/login')
   }
