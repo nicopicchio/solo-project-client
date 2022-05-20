@@ -2,6 +2,8 @@ import '../Dashboard/Dashboard.css';
 import Logo from '../../../src/assets/continental-logo.jpg';
 import { useNavigate } from 'react-router-dom';
 
+const fbiFugitivesRequestRoute = 'http://localhost:5432/fugitives'
+
 function Dashboard() {
   const navigate = useNavigate();
   const signOut = () => {
