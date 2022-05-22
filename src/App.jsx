@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 function App() {
 	const navigate = useNavigate();
 	const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+	const [username, setUsername] = useState('')
 
 	useEffect(() => { 
 		const token = localStorage.getItem('jwt')
@@ -22,8 +23,8 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Homepage />} />
 				<Route path='/register' element={<RegistrationForm />} />
-				<Route path='/login' element={<LoginForm setIsUserLoggedIn={setIsUserLoggedIn} />} />
-				<Route path='/dashboard' element={isUserLoggedIn && <Dashboard />} />
+				<Route path='/login' element={<LoginForm setIsUserLoggedIn={setIsUserLoggedIn} setUsername={setUsername} />} />
+				<Route path='/dashboard' element={isUserLoggedIn && <Dashboard username={username} />} />
 			</Routes>
 		</>
 	);

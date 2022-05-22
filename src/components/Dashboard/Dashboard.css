@@ -1,6 +1,6 @@
 header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 main {
@@ -32,7 +32,7 @@ main {
 }
 
 #logout-button {
-  margin: auto 2rem;
+  margin: auto;
   font-weight: bold;
 }
 

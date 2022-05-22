@@ -1,4 +1,3 @@
-import '../LoginForm/LoginForm.css'
 import Logo from '../../../src/assets/continental-logo.jpg';
 
 import axios from 'axios'
@@ -11,10 +10,10 @@ const emptyForm = {
 };
 const loginUserRoute = 'http://localhost:5432/user/login';
 
-function LoginForm({ setIsUserLoggedIn }) {
+function LoginForm({ setIsUserLoggedIn, setUsername }) {
 	const navigate = useNavigate();
 	const [loginData, setLoginData] = useState(emptyForm);
-
+	
 	const onLoginFormChange = (event) => {
 		const { name, value } = event.target;
 		setLoginData({
@@ -31,9 +30,10 @@ function LoginForm({ setIsUserLoggedIn }) {
 			})
 			.then((res) => {
 				if (res.status === 200) {
+					setUsername(res.data[1].username)
 					setIsUserLoggedIn(true)
 					navigate('/dashboard')
-					localStorage.setItem('jwt', res.data)
+					localStorage.setItem('jwt', res.data[0])
 				}
 			})
 			.catch((err) => {

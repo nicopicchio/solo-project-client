@@ -1,4 +1,3 @@
-import '../RegistrationForm/RegistrationForm.css'
 import Logo from '../../../src/assets/continental-logo.jpg';
 import axios from 'axios';
 import { useState } from 'react';
