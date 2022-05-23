@@ -1,5 +1,4 @@
 import Logo from '../../../src/assets/continental-logo.jpg';
-
 import axios from 'axios'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,7 +9,7 @@ const emptyForm = {
 };
 const loginUserRoute = 'http://localhost:5432/user/login';
 
-function LoginForm({ setIsUserLoggedIn, setUsername }) {
+function LoginForm({ setIsUserLoggedIn, setUsername, setBalance }) {
 	const navigate = useNavigate();
 	const [loginData, setLoginData] = useState(emptyForm);
 	
@@ -31,6 +30,7 @@ function LoginForm({ setIsUserLoggedIn, setUsername }) {
 			.then((res) => {
 				if (res.status === 200) {
 					setUsername(res.data[1].username)
+					setBalance(res.data[1].balance)
 					setIsUserLoggedIn(true)
 					navigate('/dashboard')
 					localStorage.setItem('jwt', res.data[0])
