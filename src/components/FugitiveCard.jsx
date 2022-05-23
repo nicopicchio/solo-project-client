@@ -10,7 +10,6 @@ function FugitiveCard() {
 		axios
 			.get(fbiFugitivesRequestRoute)
 			.then((response) => {
-				console.log(response.data);
 				setFugitivesList(response.data);
 			})
 			.catch((err) => {
@@ -33,9 +32,9 @@ function FugitiveCard() {
 							/>
 						</div>
 						<div className='profile-name-container'>
-							<Link className='fugitive-name-link' to={fugitive.url}>
+							<a className='fugitive-name-link' target='_blank' href={fugitive.url}>
 								{fugitive.name}
-							</Link>
+							</a>
 						</div>
 						<div className='profile-warning-container'>
 							<h4 className='fugitive-warning'>{fugitive.warning}</h4>
@@ -44,7 +43,7 @@ function FugitiveCard() {
 							<p className='fugitive-reward-text'>{fugitive.reward}</p>
 						</div>
             <div className='profile-reward-amount-container'>
-              <h2>Reward</h2>
+              <h2 className='profile-reward-amount-text'>Reward</h2>
             </div>
 						<div className='profile-btn-container'>
 							<button className='fugitive-accept-job-btn'>Accept Job</button>

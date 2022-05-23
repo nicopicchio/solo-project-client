@@ -16,8 +16,10 @@ function App() {
 
 	useEffect(() => {
 		const token = localStorage.getItem('jwt');
+		const username = localStorage.getItem('username');
 		if (token || token !== undefined) {
 			setIsUserLoggedIn(true);
+			setUsername(username);
 		} else navigate('/login');
 	}, [navigate]);
 

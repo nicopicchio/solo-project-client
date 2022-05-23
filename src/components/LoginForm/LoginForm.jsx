@@ -34,6 +34,7 @@ function LoginForm({ setIsUserLoggedIn, setUsername, setBalance }) {
 					setIsUserLoggedIn(true)
 					navigate('/dashboard')
 					localStorage.setItem('jwt', res.data[0])
+					localStorage.setItem('username', res.data[1].username)
 				}
 			})
 			.catch((err) => {
