@@ -61,3 +61,44 @@ p {
 .registration-login-links:hover {
   text-decoration: underline;
 }
+
+.fugitive-card {
+  width: 300px;
+  height: 500px;
+  border : 1px solid #ffad1d;
+  border-radius: 4px;
+  display: grid;
+  grid-template-rows: repeat(5, max-content);
+}
+
+.profile-picture-container {
+  display: grid;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.fugitive-avatar {
+  object-fit: cover;
+}
+
+.fugitive-name-link {
+  text-decoration: none;
+  color: #ffad1d;
+  display: block;
+  text-align: center;
+}
+
+.fugitive-warning {
+  color: rgb(255, 50, 50);
+  text-align: center;
+  padding: 1rem;
+}
+
+.fugitive-reward-text {
+  width: 25ch;
+  margin: auto;
+}
+
+.fugitive-accept-job-btn {
+  background-color: rgb(0, 161, 0);
+}

@@ -5,8 +5,8 @@ header {
 
 main {
   margin: 3rem 2rem 0;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 #logo-top-left {
@@ -46,10 +46,20 @@ main {
 .main-right-container {
   display: grid;
   grid-template-rows: max-content 1fr;
+  width: 100%;
   border: 1px solid #ffad1d;
 }
 
 .main-middle-container {
   border: none;
   width: 100%;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+}
+
+.main-container-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 0 2rem;
 }

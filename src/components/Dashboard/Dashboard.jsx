@@ -30,14 +30,16 @@ function Dashboard({ username, balance }) {
 			</header>
 			<main>
 				<div className='main-left-container main-containers'>
-					<h2 className='main-container-heading'>Targets Accepted</h2>
+					<h2 className='main-container-heading'>Jobs Accepted</h2>
 				</div>
 				<div className='main-middle-container main-containers'>
-					<h2 className='main-container-heading'>Wanted</h2>
-					<FugitiveCard />
+					<h2 className='main-container-heading'>Jobs Available</h2>
+					<div className='main-container-card'>
+						<FugitiveCard />
+					</div>
 				</div>
 				<div className='main-right-container main-containers'>
-					<h2 className='main-container-heading'>Targets Captured</h2>
+					<h2 className='main-container-heading'>Jobs Completed</h2>
 				</div>
 			</main>
 		</>
