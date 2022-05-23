@@ -18,8 +18,8 @@ function FugitiveCard() {
 
 	return (
 		<>
-			{fugitivesList.map((fugitive) => {
-				return <p>{fugitive.name}</p>;
+			{fugitivesList.map((fugitive, index) => {
+				return <p key={index}>{fugitive.name}</p>;
 			})}
 		</>
 	);
