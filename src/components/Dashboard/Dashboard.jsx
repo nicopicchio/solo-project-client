@@ -40,6 +40,9 @@ function Dashboard({ username, balance }) {
 			}
 		})
 		.then((response) => {
+			// not quite sure about the response I am getting back
+			// only getting job uid and nothing else
+			// how am I going to render the job details?
 			console.log(response.data)
 		})
 		.catch((err) => {
