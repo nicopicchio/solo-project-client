@@ -1,7 +1,7 @@
 import '../Dashboard/Dashboard.css';
 import Logo from '../../../src/assets/continental-logo.jpg';
 import { useNavigate } from 'react-router-dom';
-import FugitiveCard from '../FugitiveCard';
+import FugitiveCard from '../FugitiveCard/FugitiveCard';
 
 function Dashboard({ username, balance }) {
 	const navigate = useNavigate();

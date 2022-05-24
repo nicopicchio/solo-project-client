@@ -1,0 +1,61 @@
+.fugitive-card {
+  width: 300px;
+  height: 500px;
+  border : 1px solid #ffad1d;
+  border-radius: 4px;
+  display: grid;
+  grid-template-rows: 150px 40px 40px 150px 60px 40px;
+}
+
+.profile-picture-container {
+  display: grid;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.fugitive-avatar {
+  object-fit: cover;
+}
+
+.fugitive-name-link {
+  text-decoration: none;
+  color: #ffad1d;
+  display: block;
+  text-align: center;
+}
+
+.profile-name-container {
+  display: grid;
+  place-items: center;
+  /* margin-top: 3rem; */
+}
+
+.fugitive-warning {
+  color: rgb(255, 50, 50);
+  text-align: center;
+  margin: 0 1rem;
+}
+
+.fugitive-reward-text {
+  width: 25ch;
+  margin: auto;
+}
+
+.fugitive-accept-job-btn {
+  background-color: rgb(0, 161, 67);
+  margin: 0 auto;
+}
+
+.profile-reward-amount-text {
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.profile-btn-container,
+.profile-warning-container,
+.profile-reward-text-container,
+.profile-reward-amount-text {
+  display: grid;
+  place-items: center;
+}

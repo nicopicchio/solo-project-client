@@ -1,5 +1,5 @@
+import '../FugitiveCard/FugitiveCard.css'
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 const fbiFugitivesRequestRoute = 'http://localhost:5432/fugitives';
 
@@ -10,6 +10,7 @@ function FugitiveCard() {
 		axios
 			.get(fbiFugitivesRequestRoute)
 			.then((response) => {
+				console.log(response.data);
 				setFugitivesList(response.data);
 			})
 			.catch((err) => {
@@ -32,12 +33,12 @@ function FugitiveCard() {
 							/>
 						</div>
 						<div className='profile-name-container'>
-							<a className='fugitive-name-link' target='_blank' href={fugitive.url}>
+							<a className='fugitive-name-link' target='_blank' rel='noreferrer' href={fugitive.url}>
 								{fugitive.name}
 							</a>
 						</div>
 						<div className='profile-warning-container'>
-							<h4 className='fugitive-warning'>{fugitive.warning}</h4>
+							{fugitive.warning ? <h4 className='fugitive-warning'>{fugitive.warning}</h4> : <h4 className='fugitive-warning'>NO WARNING ISSUED</h4>}
 						</div>
 						<div className='profile-reward-text-container'>
 							<p className='fugitive-reward-text'>{fugitive.reward}</p>
