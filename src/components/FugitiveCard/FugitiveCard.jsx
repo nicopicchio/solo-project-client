@@ -1,23 +1,6 @@
-import '../FugitiveCard/FugitiveCard.css'
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-const fbiFugitivesRequestRoute = 'http://localhost:5432/fugitives';
+import '../FugitiveCard/FugitiveCard.css';
 
-function FugitiveCard() {
-	const [fugitivesList, setFugitivesList] = useState([]);
-
-	useEffect(() => {
-		axios
-			.get(fbiFugitivesRequestRoute)
-			.then((response) => {
-				console.log(response.data);
-				setFugitivesList(response.data);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	}, []);
-
+function FugitiveCard({ fugitivesList }) {
 	return (
 		<>
 			{fugitivesList.map((fugitive, index) => {
@@ -33,20 +16,30 @@ function FugitiveCard() {
 							/>
 						</div>
 						<div className='profile-name-container'>
-							<a className='fugitive-name-link' target='_blank' rel='noreferrer' href={fugitive.url}>
+							<a
+								className='fugitive-name-link'
+								target='_blank'
+								rel='noreferrer'
+								href={fugitive.url}>
 								{fugitive.name}
 							</a>
 						</div>
 						<div className='profile-warning-container'>
-							{fugitive.warning ? <h4 className='fugitive-warning'>{fugitive.warning}</h4> : <h4 className='fugitive-warning'>NO WARNING ISSUED</h4>}
+							{fugitive.warning ? (
+								<h4 className='fugitive-warning'>{fugitive.warning}</h4>
+							) : (
+								<h4 className='fugitive-warning'>NO WARNING ISSUED</h4>
+							)}
 						</div>
 						<div className='profile-reward-text-container'>
 							<p className='fugitive-reward-text'>{fugitive.reward}</p>
 						</div>
-            <div className='profile-reward-amount-container'>
-              <h2 className='profile-reward-amount-text'>Reward</h2>
-							<h2 className='profile-reward-amount-text'>{fugitive.rewardAmount}</h2>
-            </div>
+						<div className='profile-reward-amount-container'>
+							<h2 className='profile-reward-amount-text'>Reward</h2>
+							<h2 className='profile-reward-amount-text'>
+								{fugitive.rewardAmount}
+							</h2>
+						</div>
 						<div className='profile-btn-container'>
 							<button className='fugitive-accept-job-btn'>Accept Job</button>
 						</div>
