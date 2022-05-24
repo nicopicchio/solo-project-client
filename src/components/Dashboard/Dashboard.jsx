@@ -1,10 +1,13 @@
 import '../Dashboard/Dashboard.css';
 import Logo from '../../../src/assets/continental-logo.jpg';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import FugitiveCard from '../FugitiveCard/FugitiveCard';
 
 function Dashboard({ username, balance }) {
 	const navigate = useNavigate();
+	const [jobsAccepted, setJobsAccepted] = useState([])
+	const [jobsCompleted, setJobsCompleted] = useState([])
 
 	const signOut = () => {
 		localStorage.clear();

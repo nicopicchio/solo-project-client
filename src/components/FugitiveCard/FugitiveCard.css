@@ -28,7 +28,6 @@
 .profile-name-container {
   display: grid;
   place-items: center;
-  /* margin-top: 3rem; */
 }
 
 .fugitive-warning {
@@ -40,15 +39,17 @@
 .fugitive-reward-text {
   width: 25ch;
   margin: auto;
+  color: #bdbdbd;
 }
 
 .fugitive-accept-job-btn {
-  background-color: rgb(0, 161, 67);
+  background-color: #ffad1d;
+  font-weight: bold;
   margin: 0 auto;
 }
 
 .profile-reward-amount-text {
-  color: #bdbdbd;
+  color: #ffad1d;
   text-align: center;
 }
 
