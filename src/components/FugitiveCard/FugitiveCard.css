@@ -1,10 +1,10 @@
 .fugitive-card {
   width: 300px;
-  height: 500px;
+  height: 540px;
   border : 1px solid #ffad1d;
   border-radius: 4px;
   display: grid;
-  grid-template-rows: 150px 40px 40px 150px 60px 40px;
+  grid-template-rows: 150px 40px 40px 170px 80px 40px;
 }
 
 .profile-picture-container {

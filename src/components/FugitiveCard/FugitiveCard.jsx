@@ -45,6 +45,7 @@ function FugitiveCard() {
 						</div>
             <div className='profile-reward-amount-container'>
               <h2 className='profile-reward-amount-text'>Reward</h2>
+							<h2 className='profile-reward-amount-text'>{fugitive.rewardAmount}</h2>
             </div>
 						<div className='profile-btn-container'>
 							<button className='fugitive-accept-job-btn'>Accept Job</button>
