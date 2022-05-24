@@ -1,6 +1,6 @@
 import '../FugitiveCard/FugitiveCard.css';
 
-function FugitiveCard({ fugitivesList }) {
+function FugitiveCard({ fugitivesList, addJobHandler }) {
 	return (
 		<>
 			{fugitivesList.map((fugitive, index) => {
@@ -41,7 +41,7 @@ function FugitiveCard({ fugitivesList }) {
 							</h2>
 						</div>
 						<div className='profile-btn-container'>
-							<button className='fugitive-accept-job-btn'>Accept Job</button>
+							<button onClick={() => addJobHandler(fugitive)} className='fugitive-accept-job-btn'>Accept Job</button>
 						</div>
 					</div>
 				);

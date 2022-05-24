@@ -4,13 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import FugitiveCard from '../FugitiveCard/FugitiveCard';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 const fbiFugitivesRequestRoute = 'http://localhost:5432/fugitives';
+const jobsAcceptedURL = 'http://localhost:5432/jobs/accept';
 
 function Dashboard({ username, balance }) {
 	const navigate = useNavigate();
 	const [fugitivesList, setFugitivesList] = useState([]);
 	const [jobsAccepted, setJobsAccepted] = useState([]);
 	const [jobsCompleted, setJobsCompleted] = useState([]);
+	console.log('jobs accepted: ', jobsAccepted);
 
 	const signOut = () => {
 		localStorage.clear();
@@ -21,13 +24,28 @@ function Dashboard({ username, balance }) {
 		axios
 			.get(fbiFugitivesRequestRoute)
 			.then((response) => {
-				console.log(response.data);
 				setFugitivesList(response.data);
 			})
 			.catch((err) => {
 				console.error(err);
 			});
 	}, []);
+
+	const addJobHandler = (fugitive) => {
+		axios.post(jobsAcceptedURL, {
+			uid: fugitive.uid,
+		}, {
+			headers: {
+				authorization: `Bearer ${localStorage.getItem('jwt')}`
+			}
+		})
+		.then((response) => {
+			console.log(response.data)
+		})
+		.catch((err) => {
+			console.error(err);
+		})
+	};
 
 	return (
 		<>
@@ -49,6 +67,17 @@ function Dashboard({ username, balance }) {
 			<main>
 				<div className='main-left-container main-containers'>
 					<h2 className='main-container-heading'>Jobs Accepted</h2>
+					<div className='jobs-accepted-container'>
+						<ul>
+							{jobsAccepted.map((job) => {
+								return (
+									<>
+										<li>{job.name}</li>
+									</>
+								);
+							})}
+						</ul>
+					</div>
 				</div>
 				<div className='main-middle-container main-containers'>
 					<h2 className='main-container-heading'>Jobs Available</h2>
@@ -56,6 +85,7 @@ function Dashboard({ username, balance }) {
 						<FugitiveCard
 							fugitivesList={fugitivesList}
 							setFugitivesList={setFugitivesList}
+							addJobHandler={addJobHandler}
 						/>
 					</div>
 				</div>
