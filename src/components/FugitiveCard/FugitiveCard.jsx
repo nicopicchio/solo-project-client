@@ -41,7 +41,7 @@ function FugitiveCard({ fugitivesList, addJobHandler }) {
 							</h2>
 						</div>
 						<div className='profile-btn-container'>
-							<button onClick={() => addJobHandler(fugitive)} className='fugitive-accept-job-btn'>Accept Job</button>
+							{!fugitive.job && <button onClick={() => addJobHandler(fugitive)} className='fugitive-accept-job-btn'>Accept Job</button>}
 						</div>
 					</div>
 				);

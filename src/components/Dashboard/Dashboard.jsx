@@ -11,9 +11,6 @@ const jobsAcceptedURL = 'http://localhost:5432/jobs/accept';
 function Dashboard({ username, balance }) {
 	const navigate = useNavigate();
 	const [fugitivesList, setFugitivesList] = useState([]);
-	const [jobsAccepted, setJobsAccepted] = useState([]);
-	const [jobsCompleted, setJobsCompleted] = useState([]);
-	console.log('jobs accepted: ', jobsAccepted);
 
 	const signOut = () => {
 		localStorage.clear();
@@ -22,8 +19,13 @@ function Dashboard({ username, balance }) {
 
 	useEffect(() => {
 		axios
-			.get(fbiFugitivesRequestRoute)
+			.get(fbiFugitivesRequestRoute, {
+				headers: {
+					authorization: `Bearer ${localStorage.getItem('jwt')}`,
+				},
+			})
 			.then((response) => {
+				console.log(response.data);
 				setFugitivesList(response.data);
 			})
 			.catch((err) => {
@@ -32,23 +34,27 @@ function Dashboard({ username, balance }) {
 	}, []);
 
 	const addJobHandler = (fugitive) => {
-		axios.post(jobsAcceptedURL, {
-			uid: fugitive.uid,
-		}, {
-			headers: {
-				authorization: `Bearer ${localStorage.getItem('jwt')}`
-			}
-		})
-		.then((response) => {
-			// not quite sure about the response I am getting back
-			// only getting job uid and nothing else
-			// how am I going to render the job details?
-			console.log(response.data)
-		})
-		.catch((err) => {
-			console.error(err);
-		})
+		axios
+			.post(
+				jobsAcceptedURL,
+				{
+					uid: fugitive.uid,
+				},
+				{
+					headers: {
+						authorization: `Bearer ${localStorage.getItem('jwt')}`,
+					},
+				}
+			)
+			.then((response) => {
+				console.log(response.data);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 	};
+
+	const jobsAccepted = fugitivesList.filter(fugitive => (fugitive.job))
 
 	return (
 		<>
@@ -72,10 +78,10 @@ function Dashboard({ username, balance }) {
 					<h2 className='main-container-heading'>Jobs Accepted</h2>
 					<div className='jobs-accepted-container'>
 						<ul>
-							{jobsAccepted.map((job) => {
+							{jobsAccepted.map((fugitive) => {
 								return (
 									<>
-										<li>{job.name}</li>
+										<li>{fugitive.name}</li>
 									</>
 								);
 							})}
