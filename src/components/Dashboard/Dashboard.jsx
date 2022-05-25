@@ -8,11 +8,13 @@ import FugitiveCardJobs from '../FugitiveCard/FugitiveCardJobs';
 
 const fbiFugitivesRequestRoute = 'http://localhost:5432/fugitives';
 const jobsAcceptedURL = 'http://localhost:5432/jobs/accept';
+const markAsCompletedURL = 'http://localhost:5432/jobs/complete';
 
 function Dashboard({ username, balance }) {
 	const navigate = useNavigate();
 	const [fugitivesList, setFugitivesList] = useState([]);
 	const [jobsAccepted, setJobsAccepted] = useState([]);
+	const [jobsCompleted, setJobsCompleted] = useState([]);
 
 	const signOut = () => {
 		localStorage.clear();
@@ -52,7 +54,28 @@ function Dashboard({ username, balance }) {
 				}
 			)
 			.then((response) => {
-				setJobsAccepted([...jobsAccepted, fugitive])
+				setJobsAccepted([...jobsAccepted, fugitive]);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	};
+
+	const completeJobHandler = (job) => {
+		axios
+			.post(
+				markAsCompletedURL,
+				{
+					uid: job.uid,
+				},
+				{
+					headers: {
+						authorization: `Bearer ${localStorage.getItem('jwt')}`,
+					},
+				}
+			)
+			.then((response) => {
+				console.log(response.data);
 			})
 			.catch((err) => {
 				console.error(err);
@@ -81,7 +104,10 @@ function Dashboard({ username, balance }) {
 					<h2 className='main-container-heading'>Jobs Accepted</h2>
 					<div className='jobs-accepted-container'>
 						<ul>
-							<FugitiveCardJobs jobsAccepted={jobsAccepted} />
+							<FugitiveCardJobs
+								jobsAccepted={jobsAccepted}
+								completeJobHandler={completeJobHandler}
+							/>
 						</ul>
 					</div>
 				</div>
@@ -101,14 +127,15 @@ function Dashboard({ username, balance }) {
 			</main>
 			<footer>
 				<p className='footer-text'>
-					made with ❤️ by{' '}
+					made by{' '}
 					<a
 						className='footer-link'
 						href='https://nicotech.dev'
 						target='_blank'
 						rel='noreferrer'>
 						Nico
-					</a>
+					</a>{' '}
+					with ❤️
 				</p>
 			</footer>
 		</>
