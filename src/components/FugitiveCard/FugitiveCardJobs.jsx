@@ -4,7 +4,6 @@ function FugitiveCardJobs({ jobsAccepted, completeJobHandler }) {
 	return (
 		<>
 			{jobsAccepted.map((job) => {
-				console.log(job);
 				return (
 					<li key={`jobs-accepted-${job.uid}`}>
 						<div className='job-accepted-container'>

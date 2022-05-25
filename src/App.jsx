@@ -42,7 +42,11 @@ function App() {
 					path='/dashboard'
 					element={
 						isUserLoggedIn && (
-							<Dashboard username={username} balance={balance} />
+							<Dashboard
+								username={username}
+								balance={balance}
+								setBalance={setBalance}
+							/>
 						)
 					}
 				/>

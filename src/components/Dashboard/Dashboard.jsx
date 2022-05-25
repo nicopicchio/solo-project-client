@@ -10,7 +10,7 @@ const fbiFugitivesRequestRoute = 'http://localhost:5432/fugitives';
 const jobsAcceptedURL = 'http://localhost:5432/jobs/accept';
 const markAsCompletedURL = 'http://localhost:5432/jobs/complete';
 
-function Dashboard({ username, balance }) {
+function Dashboard({ username, balance, setBalance }) {
 	const navigate = useNavigate();
 	const [fugitivesList, setFugitivesList] = useState([]);
 	const [jobsAccepted, setJobsAccepted] = useState([]);
@@ -40,31 +40,10 @@ function Dashboard({ username, balance }) {
 		setJobsAccepted(fugitivesList.filter((fugitive) => fugitive.job));
 	}, [fugitivesList]);
 
-	const addJobHandler = (fugitive) => {
+	const addJobHandler = (job) => {
 		axios
 			.post(
 				jobsAcceptedURL,
-				{
-					uid: fugitive.uid,
-				},
-				{
-					headers: {
-						authorization: `Bearer ${localStorage.getItem('jwt')}`,
-					},
-				}
-			)
-			.then((response) => {
-				setJobsAccepted([...jobsAccepted, fugitive]);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	};
-
-	const completeJobHandler = (job) => {
-		axios
-			.post(
-				markAsCompletedURL,
 				{
 					uid: job.uid,
 				},
@@ -75,11 +54,33 @@ function Dashboard({ username, balance }) {
 				}
 			)
 			.then((response) => {
-				console.log(response.data);
+				setJobsAccepted([...jobsAccepted, job]);
 			})
 			.catch((err) => {
 				console.error(err);
 			});
+	};
+
+	const completeJobHandler = (job) => {
+		console.log('variable: ', job.rewardAmount[0]);
+		// axios
+		// 	.post(
+		// 		markAsCompletedURL,
+		// 		{
+		// 			uid: job.uid,
+		// 		},
+		// 		{
+		// 			headers: {
+		// 				authorization: `Bearer ${localStorage.getItem('jwt')}`,
+		// 			},
+		// 		}
+		// 	)
+		// 	.then((response) => {
+		// 		console.log(response.data);
+		// 	})
+		// 	.catch((err) => {
+		// 		console.error(err);
+		// 	});
 	};
 
 	return (
