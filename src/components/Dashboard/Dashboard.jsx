@@ -1,9 +1,10 @@
 import '../Dashboard/Dashboard.css';
-import Logo from '../../../src/assets/continental-logo.jpg';
-import { useNavigate } from 'react-router-dom';
-import FugitiveCard from '../FugitiveCard/FugitiveCard';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, Fragment } from 'react';
+import Logo from '../../../src/assets/continental-logo.jpg';
+import FugitiveCard from '../FugitiveCard/FugitiveCard';
+import FugitiveCardJobs from '../FugitiveCard/FugitiveCardJobs';
 
 const fbiFugitivesRequestRoute = 'http://localhost:5432/fugitives';
 const jobsAcceptedURL = 'http://localhost:5432/jobs/accept';
@@ -11,6 +12,7 @@ const jobsAcceptedURL = 'http://localhost:5432/jobs/accept';
 function Dashboard({ username, balance }) {
 	const navigate = useNavigate();
 	const [fugitivesList, setFugitivesList] = useState([]);
+	const [jobsAccepted, setJobsAccepted] = useState([]);
 
 	const signOut = () => {
 		localStorage.clear();
@@ -25,13 +27,16 @@ function Dashboard({ username, balance }) {
 				},
 			})
 			.then((response) => {
-				console.log(response.data);
 				setFugitivesList(response.data);
 			})
 			.catch((err) => {
 				console.error(err);
 			});
 	}, []);
+
+	useEffect(() => {
+		setJobsAccepted(fugitivesList.filter((fugitive) => fugitive.job));
+	}, [fugitivesList]);
 
 	const addJobHandler = (fugitive) => {
 		axios
@@ -47,14 +52,12 @@ function Dashboard({ username, balance }) {
 				}
 			)
 			.then((response) => {
-				console.log(response.data);
+				setJobsAccepted([...jobsAccepted, fugitive])
 			})
 			.catch((err) => {
 				console.error(err);
 			});
 	};
-
-	const jobsAccepted = fugitivesList.filter(fugitive => (fugitive.job))
 
 	return (
 		<>
@@ -78,13 +81,7 @@ function Dashboard({ username, balance }) {
 					<h2 className='main-container-heading'>Jobs Accepted</h2>
 					<div className='jobs-accepted-container'>
 						<ul>
-							{jobsAccepted.map((fugitive) => {
-								return (
-									<>
-										<li>{fugitive.name}</li>
-									</>
-								);
-							})}
+							<FugitiveCardJobs jobsAccepted={jobsAccepted} />
 						</ul>
 					</div>
 				</div>
@@ -102,6 +99,18 @@ function Dashboard({ username, balance }) {
 					<h2 className='main-container-heading'>Jobs Completed</h2>
 				</div>
 			</main>
+			<footer>
+				<p className='footer-text'>
+					made with ❤️ by{' '}
+					<a
+						className='footer-link'
+						href='https://nicotech.dev'
+						target='_blank'
+						rel='noreferrer'>
+						Nico
+					</a>
+				</p>
+			</footer>
 		</>
 	);
 }

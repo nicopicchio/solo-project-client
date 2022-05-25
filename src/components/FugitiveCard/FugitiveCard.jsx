@@ -3,9 +3,9 @@ import '../FugitiveCard/FugitiveCard.css';
 function FugitiveCard({ fugitivesList, addJobHandler }) {
 	return (
 		<>
-			{fugitivesList.map((fugitive, index) => {
+			{fugitivesList.map((fugitive) => {
 				return (
-					<div key={index} className='fugitive-card'>
+					<div key={`fugitives-list-${fugitive.uid}`} className='fugitive-card'>
 						<div className='profile-picture-container'>
 							<img
 								className='fugitive-avatar'
@@ -41,7 +41,13 @@ function FugitiveCard({ fugitivesList, addJobHandler }) {
 							</h2>
 						</div>
 						<div className='profile-btn-container'>
-							{!fugitive.job && <button onClick={() => addJobHandler(fugitive)} className='fugitive-accept-job-btn'>Accept Job</button>}
+							{!fugitive.job && (
+								<button
+									onClick={() => addJobHandler(fugitive)}
+									className='fugitive-accept-job-btn'>
+									Accept Job
+								</button>
+							)}
 						</div>
 					</div>
 				);
