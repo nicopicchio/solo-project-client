@@ -13,8 +13,6 @@ const markAsCompletedURL = 'http://localhost:5432/jobs/complete';
 function Dashboard({ username, balance, setBalance }) {
 	const navigate = useNavigate();
 	const [fugitivesList, setFugitivesList] = useState([]);
-	// const [jobsAccepted, setJobsAccepted] = useState([]);
-	// const [jobsCompleted, setJobsCompleted] = useState([]);
 
 	const jobsAccepted = fugitivesList.filter((fugitive) => {
 		return fugitive.job && !fugitive.job.completed;
@@ -23,8 +21,6 @@ function Dashboard({ username, balance, setBalance }) {
 	const jobsCompleted = fugitivesList.filter((fugitive) => {
 		return fugitive.job && fugitive.job.completed;
 	});
-
-	
 
 	const signOut = () => {
 		localStorage.clear();
@@ -45,10 +41,6 @@ function Dashboard({ username, balance, setBalance }) {
 				console.error(err);
 			});
 	}, []);
-
-	// useEffect(() => {
-	// 	setJobsAccepted(fugitivesList.filter((fugitive) => fugitive.job));
-	// }, [fugitivesList]);
 
 	const addJobHandler = (job) => {
 		axios

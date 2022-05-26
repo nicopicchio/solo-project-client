@@ -5,7 +5,7 @@ function JobListItem({ job, completeJobHandler }) {
 				<div className='job-accepted-image-container'>
 					<img
 						className='fugitive-avatar fugitive-avatar-thumb'
-						src={job.images[0].thumb}
+						src={job.images[0].original}
 						alt='fugitive snapshot'
 						width='80px'
 						height='80px'
