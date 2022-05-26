@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Welcome to the Continental Network 🏨
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![app screenshot](src/assets/continental-screenshot.png)
 
-## Available Scripts
+# Project Description
+This project was inspired by the John Wick movies.  
+In the movies, the Continental is a chain of hotels located all around the world that function as a neutral territory for members of the criminal underworld, generally hitmen and high-end criminals.
 
-In the project directory, you can run:
+- You can find out more about the Continental [here](https://johnwick.fandom.com/wiki/Continental_Hotel).
 
-### `npm start`
+The app simulates a booking system where users can carry out contracts by choosing jobs from the list of jobs available. The jobs come from real unsolved FBI cases that are shared by the FBI itself through their public API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- You can get to the FBI public API docs [here](https://api.fbi.gov/docs).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Setup instructions
+- If someone clones your project, what do they need to do to get it running?
+- i.e .env set up, database setup, prisma commands, etc.
 
-### `npm run build`
+# Approach to implementation
+- A few sentences on implementation and architecture.
+- Briefly note what tech you used - React, express, postgres, etc.
+- Note anything particularly interesting you want to highlight.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Learnings
+- Setting up a project from scratch
+- Filtering data from a 3rd party API on the back end
+- Authentication
