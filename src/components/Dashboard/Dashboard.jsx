@@ -1,10 +1,10 @@
 import '../Dashboard/Dashboard.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import Logo from '../../../src/assets/continental-logo.jpg';
 import FugitiveCard from '../FugitiveCard/FugitiveCard';
-import FugitiveCardJobs from '../FugitiveCard/FugitiveCardJobs';
+import JobsList from '../JobList/JobsList';
 
 const fbiFugitivesRequestRoute = 'http://localhost:5432/fugitives';
 const jobsAcceptedURL = 'http://localhost:5432/jobs/accept';
@@ -13,8 +13,18 @@ const markAsCompletedURL = 'http://localhost:5432/jobs/complete';
 function Dashboard({ username, balance, setBalance }) {
 	const navigate = useNavigate();
 	const [fugitivesList, setFugitivesList] = useState([]);
-	const [jobsAccepted, setJobsAccepted] = useState([]);
-	const [jobsCompleted, setJobsCompleted] = useState([]);
+	// const [jobsAccepted, setJobsAccepted] = useState([]);
+	// const [jobsCompleted, setJobsCompleted] = useState([]);
+
+	const jobsAccepted = fugitivesList.filter((fugitive) => {
+		return fugitive.job && !fugitive.job.completed;
+	});
+
+	const jobsCompleted = fugitivesList.filter((fugitive) => {
+		return fugitive.job && fugitive.job.completed;
+	});
+
+	
 
 	const signOut = () => {
 		localStorage.clear();
@@ -36,9 +46,9 @@ function Dashboard({ username, balance, setBalance }) {
 			});
 	}, []);
 
-	useEffect(() => {
-		setJobsAccepted(fugitivesList.filter((fugitive) => fugitive.job));
-	}, [fugitivesList]);
+	// useEffect(() => {
+	// 	setJobsAccepted(fugitivesList.filter((fugitive) => fugitive.job));
+	// }, [fugitivesList]);
 
 	const addJobHandler = (job) => {
 		axios
@@ -54,7 +64,16 @@ function Dashboard({ username, balance, setBalance }) {
 				}
 			)
 			.then((response) => {
-				setJobsAccepted([...jobsAccepted, job]);
+				console.log(response.data.jobAdded)
+				const fugitivesCopy = fugitivesList.map((fugitive) => {
+					if (fugitive.uid === job.uid) {
+						const fugitiveCopy = { ...fugitive };
+						fugitiveCopy.job = response.data.jobAdded
+						return fugitiveCopy
+					}
+					return fugitive
+				});
+				setFugitivesList(fugitivesCopy)
 			})
 			.catch((err) => {
 				console.error(err);
@@ -62,26 +81,35 @@ function Dashboard({ username, balance, setBalance }) {
 	};
 
 	const completeJobHandler = (job) => {
-		console.log('variable: ', job.rewardAmount[0]);
-		// axios
-		// 	.post(
-		// 		markAsCompletedURL,
-		// 		{
-		// 			uid: job.uid,
-		// 		},
-		// 		{
-		// 			headers: {
-		// 				authorization: `Bearer ${localStorage.getItem('jwt')}`,
-		// 			},
-		// 		}
-		// 	)
-		// 	.then((response) => {
-		// 		console.log(response.data);
-		// 	})
-		// 	.catch((err) => {
-		// 		console.error(err);
-		// 	});
+		axios
+			.post(
+				markAsCompletedURL,
+				{
+					uid: job.uid,
+				},
+				{
+					headers: {
+						authorization: `Bearer ${localStorage.getItem('jwt')}`,
+					},
+				}
+			)
+			.then((response) => {
+				const fugitivesCopy = fugitivesList.map((fugitive) => {
+					if (fugitive.uid === job.uid) {
+						const fugitiveCopy = { ...fugitive };
+						fugitiveCopy.job = response.data.jobCompleted
+						return fugitiveCopy
+					}
+					return fugitive
+				})
+				setFugitivesList(fugitivesCopy)
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 	};
+
+	console.log(jobsCompleted)
 
 	return (
 		<>
@@ -105,7 +133,7 @@ function Dashboard({ username, balance, setBalance }) {
 					<h2 className='main-container-heading'>Jobs Accepted</h2>
 					<div className='jobs-accepted-container'>
 						<ul>
-							<FugitiveCardJobs
+							<JobsList
 								jobsAccepted={jobsAccepted}
 								completeJobHandler={completeJobHandler}
 							/>
