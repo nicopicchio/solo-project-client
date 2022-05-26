@@ -40,7 +40,7 @@ function RegistrationForm() {
 				})
 				.catch((err) => {
 					if (err.response.status === 500) {
-						alert(err.response.data)
+						alert(err.response.data);
 					}
 				});
 		}

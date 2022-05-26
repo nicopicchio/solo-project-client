@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Logo from '../../../src/assets/continental-logo.jpg';
 import FugitiveCard from '../FugitiveCard/FugitiveCard';
 import JobsList from '../JobList/JobsList';
-import JobsCompletedList from '../JobList/JobCompletedList'
+import JobsCompletedList from '../JobList/JobCompletedList';
 
 const fbiFugitivesRequestRoute = 'http://localhost:5432/fugitives';
 const jobsAcceptedURL = 'http://localhost:5432/jobs/accept';
@@ -101,8 +101,6 @@ function Dashboard({ username, balance, setBalance }) {
 				console.error(err);
 			});
 	};
-
-	console.log(jobsCompleted);
 
 	return (
 		<>

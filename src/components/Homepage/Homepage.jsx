@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from '../../../src/assets/continental-logo.jpg';
-import '../Homepage/Homepage.css'
+import '../Homepage/Homepage.css';
 
 function Homepage() {
 	return (

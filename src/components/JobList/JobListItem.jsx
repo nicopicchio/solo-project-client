@@ -32,4 +32,4 @@ function JobListItem({ job, completeJobHandler }) {
 	);
 }
 
-export default JobListItem
+export default JobListItem;
