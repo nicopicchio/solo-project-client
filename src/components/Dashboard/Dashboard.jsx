@@ -23,6 +23,21 @@ function Dashboard({ username, balance, setBalance }) {
 		return fugitive.job && fugitive.job.completed;
 	});
 
+	useEffect(() => {
+		let total = 0;
+		if (!jobsCompleted) return;
+		for (const job of jobsCompleted) {
+			total += job.balance;
+		}
+		const balanceFormatter = new Intl.NumberFormat('en-US', {
+			style: 'currency',
+			currency: 'USD',
+		});
+
+		const formattedBalance = balanceFormatter.format(total);
+		setBalance(formattedBalance);
+	}, [jobsCompleted]);
+
 	const signOut = () => {
 		localStorage.clear();
 		navigate('/login');
@@ -113,7 +128,9 @@ function Dashboard({ username, balance, setBalance }) {
 				/>
 				<div className='dashboard-title-container'>
 					<h2 className='dashboard-heading'>{username}'s dashboard</h2>
-					<h2 className='dashboard-heading'>Balance: ${balance}</h2>
+					<h2 className='dashboard-heading'>
+						Balance: <span className='balance'>{balance}</span>
+					</h2>
 				</div>
 				<button id='logout-button' onClick={signOut}>
 					Logout

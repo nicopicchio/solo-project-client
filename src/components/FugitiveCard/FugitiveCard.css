@@ -96,3 +96,7 @@
   margin: 0 1rem;
   border-top: 1px solid #ffad1d;
 }
+
+.job-completed-reward-amount {
+  color: rgb(72, 227, 72);
+}

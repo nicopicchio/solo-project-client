@@ -26,6 +26,10 @@ main {
   font-size: 2rem;
 }
 
+.balance {
+  color: rgb(72, 227, 72);
+}
+
 .main-container-heading {
   text-align: center;
   margin: 2rem;
