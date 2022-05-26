@@ -36,7 +36,7 @@ function Dashboard({ username, balance, setBalance }) {
 
 		const formattedBalance = balanceFormatter.format(total);
 		setBalance(formattedBalance);
-	}, [jobsCompleted]);
+	}, [jobsCompleted, setBalance]);
 
 	const signOut = () => {
 		localStorage.clear();
