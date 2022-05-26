@@ -1,3 +1,5 @@
+import '../FugitiveCard/FugitiveCard.css';
+
 function JobListItem({ job, completeJobHandler }) {
 	return (
 		<li key={`jobs-accepted-${job.uid}`}>

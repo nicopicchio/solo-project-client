@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Logo from '../../../src/assets/continental-logo.jpg';
 import FugitiveCard from '../FugitiveCard/FugitiveCard';
 import JobsList from '../JobList/JobsList';
+import JobsCompletedList from '../JobList/JobCompletedList'
 
 const fbiFugitivesRequestRoute = 'http://localhost:5432/fugitives';
 const jobsAcceptedURL = 'http://localhost:5432/jobs/accept';
@@ -56,16 +57,16 @@ function Dashboard({ username, balance, setBalance }) {
 				}
 			)
 			.then((response) => {
-				console.log(response.data.jobAdded)
+				console.log(response.data.jobAdded);
 				const fugitivesCopy = fugitivesList.map((fugitive) => {
 					if (fugitive.uid === job.uid) {
 						const fugitiveCopy = { ...fugitive };
-						fugitiveCopy.job = response.data.jobAdded
-						return fugitiveCopy
+						fugitiveCopy.job = response.data.jobAdded;
+						return fugitiveCopy;
 					}
-					return fugitive
+					return fugitive;
 				});
-				setFugitivesList(fugitivesCopy)
+				setFugitivesList(fugitivesCopy);
 			})
 			.catch((err) => {
 				console.error(err);
@@ -89,19 +90,19 @@ function Dashboard({ username, balance, setBalance }) {
 				const fugitivesCopy = fugitivesList.map((fugitive) => {
 					if (fugitive.uid === job.uid) {
 						const fugitiveCopy = { ...fugitive };
-						fugitiveCopy.job = response.data.jobCompleted
-						return fugitiveCopy
+						fugitiveCopy.job = response.data.jobCompleted;
+						return fugitiveCopy;
 					}
-					return fugitive
-				})
-				setFugitivesList(fugitivesCopy)
+					return fugitive;
+				});
+				setFugitivesList(fugitivesCopy);
 			})
 			.catch((err) => {
 				console.error(err);
 			});
 	};
 
-	console.log(jobsCompleted)
+	console.log(jobsCompleted);
 
 	return (
 		<>
@@ -144,6 +145,11 @@ function Dashboard({ username, balance, setBalance }) {
 				</div>
 				<div className='main-right-container main-containers'>
 					<h2 className='main-container-heading'>Jobs Completed</h2>
+					<div className='jobs-accepted-container'>
+						<ul>
+							<JobsCompletedList jobsCompleted={jobsCompleted} />
+						</ul>
+					</div>
 				</div>
 			</main>
 			<footer>
