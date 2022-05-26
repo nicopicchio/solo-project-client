@@ -80,6 +80,19 @@
   text-decoration: none;
 }
 
+.name-job-completed {
+  color: #bdbdbd;
+  text-decoration: none;
+}
+
 .done-btn {
   padding: 0.5rem 1rem;
+}
+
+.job-completed-container {
+  display: flex;
+  place-content: space-between;
+  padding: 1rem 0;
+  margin: 0 1rem;
+  border-top: 1px solid #ffad1d;
 }
