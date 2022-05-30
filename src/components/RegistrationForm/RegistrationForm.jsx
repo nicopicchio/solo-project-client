@@ -10,7 +10,7 @@ const emptyForm = {
 	password: '',
 	passwordConfirmation: '',
 };
-const registerUserRoute = `${process.env.URL}/user/register`;
+const registerUserRoute = `${process.env.SERVER_URL}/user/register`;
 
 function RegistrationForm() {
 	const navigate = useNavigate();
