@@ -15,7 +15,7 @@ The app simulates a booking system where users can carry out contracts by choosi
 # Tech Stack
 - Front End  
 <a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg" width="40" height="40" alt="React" /></a>
-<a href="https://www.w3.org/TR/CSS/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" width="40" height="40" alt="React" /></a>
+<a href="https://www.w3.org/TR/CSS/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" width="40" height="40" alt="Css" /></a>
 
 - Back End  
 <a href="https://www.npmjs.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg" width="40" height="40" alt="npm" /></a>
@@ -25,7 +25,7 @@ The app simulates a booking system where users can carry out contracts by choosi
 <a href="https://www.prisma.io/" target="_blank" rel="noreferrer"><img src="../client/src/assets/supabase-seeklogo.com.svg" width="40" height="40" alt="Supabase" /></a>
 
 - Version Control  
-<a href="https://git-scm.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" width="40" height="40" alt="npm" /></a>
+<a href="https://git-scm.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" width="40" height="40" alt="git" /></a>
 
 # Learnings
 - Setting up a project from scratch
