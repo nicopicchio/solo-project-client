@@ -7,7 +7,7 @@ const emptyForm = {
 	username: '',
 	password: '',
 };
-const loginUserRoute = 'http://localhost:5432/user/login';
+const loginUserRoute = `${process.env.URL}/user/login`;
 
 function LoginForm({ setIsUserLoggedIn, setUsername, setBalance }) {
 	const navigate = useNavigate();
