@@ -10,7 +10,7 @@ const emptyForm = {
 	password: '',
 	passwordConfirmation: '',
 };
-const registerUserRoute = '/user/register';
+const registerUserRoute = `${process.env.HEROKU_SERVER_URL}/user/register`;
 
 function RegistrationForm() {
 	const navigate = useNavigate();

@@ -7,9 +7,9 @@ import FugitiveCard from '../FugitiveCard/FugitiveCard';
 import JobsList from '../JobList/JobsList';
 import JobsCompletedList from '../JobList/JobCompletedList';
 
-const fbiFugitivesRequestRoute = '/fugitives';
-const jobsAcceptedURL = '/jobs/accept';
-const markAsCompletedURL = '/jobs/complete';
+const fbiFugitivesRequestRoute = `${process.env.HEROKU_SERVER_URL}/fugitives`;
+const jobsAcceptedURL = `${process.env.HEROKU_SERVER_URL}/jobs/accept`;
+const markAsCompletedURL = `${process.env.HEROKU_SERVER_URL}/jobs/complete`;
 
 function Dashboard({ username, balance, setBalance }) {
 	const navigate = useNavigate();
