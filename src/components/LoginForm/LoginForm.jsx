@@ -38,7 +38,6 @@ function LoginForm({ setIsUserLoggedIn, setUsername, setBalance }) {
 				}
 			})
 			.catch((err) => {
-				console.log(err)
 				if (err.response) {
 					alert(err.response.data);
 				}
