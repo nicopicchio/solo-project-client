@@ -72,7 +72,6 @@ function Dashboard({ username, balance, setBalance }) {
 				}
 			)
 			.then((response) => {
-				console.log(response.data.jobAdded);
 				const fugitivesCopy = fugitivesList.map((fugitive) => {
 					if (fugitive.uid === job.uid) {
 						const fugitiveCopy = { ...fugitive };

@@ -25,14 +25,19 @@ function RegistrationForm() {
 	};
 
 	const registerUser = () => {
+		let headers = {};
 		if (registrationData.password === registrationData.passwordConfirmation) {
 			axios
-				.post(registerUserRoute, {
-					forename: registrationData.forename,
-					surname: registrationData.surname,
-					username: registrationData.username,
-					password: registrationData.password,
-				})
+				.post(
+					registerUserRoute,
+					{
+						forename: registrationData.forename,
+						surname: registrationData.surname,
+						username: registrationData.username,
+						password: registrationData.password,
+					},
+					{ headers }
+				)
 				.then((res) => {
 					if (res.status === 200) {
 						navigate('/login');
