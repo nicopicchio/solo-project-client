@@ -10,7 +10,8 @@ const emptyForm = {
 	password: '',
 	passwordConfirmation: '',
 };
-const registerUserRoute = 'http://localhost:5432/user/register';
+const url = process.env.HEROKU_SERVER_URL || 'http://localhost:5432'
+const registerUserRoute = `${url}/user/register`;
 
 function RegistrationForm() {
 	const navigate = useNavigate();

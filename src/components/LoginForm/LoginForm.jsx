@@ -7,7 +7,8 @@ const emptyForm = {
 	username: '',
 	password: '',
 };
-const loginUserRoute = 'http://localhost:5432/user/login';
+const url = process.env.HEROKU_SERVER_URL || 'http://localhost:5432'
+const loginUserRoute = `${url}/user/login`;
 
 function LoginForm({ setIsUserLoggedIn, setUsername, setBalance }) {
 	const navigate = useNavigate();
