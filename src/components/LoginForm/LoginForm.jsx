@@ -7,7 +7,7 @@ const emptyForm = {
 	username: '',
 	password: '',
 };
-const loginUserRoute = `${process.env.HEROKU_SERVER_URL}/user/login`;
+const loginUserRoute = '/user/login';
 
 function LoginForm({ setIsUserLoggedIn, setUsername, setBalance }) {
 	const navigate = useNavigate();
@@ -38,6 +38,7 @@ function LoginForm({ setIsUserLoggedIn, setUsername, setBalance }) {
 				}
 			})
 			.catch((err) => {
+				console.log(err)
 				if (err.response) {
 					alert(err.response.data);
 				}
