@@ -25,7 +25,6 @@ function RegistrationForm() {
 	};
 
 	const registerUser = () => {
-		let headers = {};
 		if (registrationData.password === registrationData.passwordConfirmation) {
 			axios
 				.post(registerUserRoute, {
