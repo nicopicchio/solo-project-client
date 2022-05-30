@@ -7,9 +7,9 @@ import FugitiveCard from '../FugitiveCard/FugitiveCard';
 import JobsList from '../JobList/JobsList';
 import JobsCompletedList from '../JobList/JobCompletedList';
 
-const fbiFugitivesRequestRoute = `${process.env.SERVER_URL}/fugitives`;
-const jobsAcceptedURL = `${process.env.SERVER_URL}/jobs/accept`;
-const markAsCompletedURL = `${process.env.SERVER_URL}/jobs/complete`;
+const fbiFugitivesRequestRoute = `http://localhost:5432/fugitives`;
+const jobsAcceptedURL = `http://localhost:5432/jobs/accept`;
+const markAsCompletedURL = `http://localhost:5432/jobs/complete`;
 
 function Dashboard({ username, balance, setBalance }) {
 	const navigate = useNavigate();
