@@ -7,7 +7,7 @@ const emptyForm = {
 	username: '',
 	password: '',
 };
-const url = process.env.HEROKU_SERVER_URL || 'http://localhost:5432'
+const url = process.env.REACT_APP_API_URL;
 const loginUserRoute = `${url}/user/login`;
 
 function LoginForm({ setIsUserLoggedIn, setUsername, setBalance }) {

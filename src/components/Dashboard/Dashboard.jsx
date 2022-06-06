@@ -7,7 +7,7 @@ import FugitiveCard from '../FugitiveCard/FugitiveCard';
 import JobsList from '../JobList/JobsList';
 import JobsCompletedList from '../JobList/JobCompletedList';
 
-const url = process.env.HEROKU_SERVER_URL || 'http://localhost:5432'
+const url = process.env.REACT_APP_API_URL;
 const fbiFugitivesRequestRoute = `${url}/fugitives`;
 const jobsAcceptedURL = `${url}/jobs/accept`;
 const markAsCompletedURL = `${url}/jobs/complete`;

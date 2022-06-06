@@ -10,7 +10,7 @@ const emptyForm = {
 	password: '',
 	passwordConfirmation: '',
 };
-const url = process.env.HEROKU_SERVER_URL || 'http://localhost:5432'
+const url = process.env.REACT_APP_API_URL;
 const registerUserRoute = `${url}/user/register`;
 
 function RegistrationForm() {
@@ -24,7 +24,6 @@ function RegistrationForm() {
 			[name]: value,
 		});
 	};
-
 	const registerUser = () => {
 		if (registrationData.password === registrationData.passwordConfirmation) {
 			axios
